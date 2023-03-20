@@ -164,6 +164,22 @@ void print_post_order_bst(BST* self) {
 	print_post_order_bst_node(self->root);
 }
 
+
+// recursive function to find the height of a node
+int find_bst_height(BSTNodePtr self) {
+	if (self == NULL) {
+		return -1;
+	}
+	int left_height = find_bst_height(self->left);
+	int right_height = find_bst_height(self->right);
+	return 1 + ((left_height > right_height) ? left_height : right_height);
+}
+
+// find the height of the tree
+int bst_height(BST* self) {
+	return find_bst_height(self->root);
+}
+
 //Test Function
 void bst_test() {
 	BST tree = new_bst();
@@ -190,4 +206,6 @@ void bst_test() {
 	printf("\nPost-order print:\n");
 	print_post_order_bst(&tree);
 	printf("\n");
+
+	printf("Height of the tree: %d\n", bst_height(&tree));
 }

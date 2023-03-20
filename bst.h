@@ -83,3 +83,11 @@ void print_pre_order_bst(BST* self);
  * @param self
  */
 void print_post_order_bst(BST* self);
+
+/**
+ * @brief find the height of the tree
+ *
+ * @param self
+ * @return int
+ */
+int bst_height(BST* self);
